@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\patients;
+namespace App\Http\Controllers\Status;
 
 use App\Http\Controllers\Controller;
-use App\Services\Patients\PatientServiceInterface;
+use App\Services\Status\StatusServiceInterface;
 use Illuminate\Http\Request;
 
-class patientController extends Controller
+class StatusController extends Controller
 {
-    protected $patientService;
+    protected $statusService;
 
-    public function __construct(PatientServiceInterface $patientService)
+    public function __construct(StatusServiceInterface $statusService)
     {
-        $this->patientService = $patientService;
+        $this->statusService = $statusService;
     }
 
     /**
@@ -20,7 +20,7 @@ class patientController extends Controller
      */
     public function index()
     {
-        return $this->patientService->getAllPatients();
+        return $this->statusService->getAllStatus();
     }
 
     /**
@@ -36,8 +36,8 @@ class patientController extends Controller
      */
     public function store(Request $request)
     {
-        $patient = $request->all();
-        return $this->patientService->createPatient($patient);
+        $status = $request->all();
+        return $this->statusService->createStatus($status);
     }
 
     /**
@@ -53,7 +53,7 @@ class patientController extends Controller
      */
     public function edit(string $id)
     {
-        return $this->patientService->getPatientById($id);
+        //
     }
 
     /**
@@ -61,8 +61,8 @@ class patientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $patient = $request->all();
-        return $this->patientService->updatePatient($patient, $id);
+        $status = $request->all();
+        return $this->statusService->updateStatus($status, $id);
     }
 
     /**
@@ -70,6 +70,6 @@ class patientController extends Controller
      */
     public function destroy(string $id)
     {
-        return $this->patientService->deletePatient($id);
+        return $this->statusService->deleteStatus($id);
     }
 }
