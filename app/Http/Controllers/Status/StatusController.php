@@ -53,7 +53,7 @@ class StatusController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return $this->statusService->getStatusById($id);
     }
 
     /**
