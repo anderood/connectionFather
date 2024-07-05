@@ -27,7 +27,7 @@ class PatientService implements PatientServiceInterface
      */
     public function getPatientById($id)
     {
-        $this->patientRepository->getPatientById($id);
+        return $this->patientRepository->getPatientById($id);
     }
 
     /**
