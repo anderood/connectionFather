@@ -22,7 +22,7 @@ class UserRepository implements UserRepositoryInterface
      */
     public function getUserById(int $id)
     {
-        return User::findOrFail($id);
+        return User::find($id);
     }
 
     /**
@@ -40,7 +40,12 @@ class UserRepository implements UserRepositoryInterface
      */
     public function updateUser(array $userData, int $id)
     {
-        return User::update($userData);
+        $user = $this->getUserById($id);
+
+        $user->name = $userData['name'];
+        $user->save();
+
+        return User::find($id);
     }
 
     /**
