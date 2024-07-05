@@ -11,8 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('patients');
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
@@ -22,9 +20,11 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('observations')->nullable();
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->timestamps();
 
-            $table->foreignId('address_id')->constrained('address');
+            $table->foreign('address_id')->references('id')->on('addresses')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -34,9 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table('patients', function (Blueprint $table) {
-            $table->dropForeign('jobs_patient_id_foreign');
-        });
         Schema::dropIfExists('patients');
     }
 };

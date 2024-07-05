@@ -11,18 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('jobs');
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
             $table->date('date_scheduling');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('address_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('patient_id')->constrained();
-            $table->foreignId('address_id')->constrained();
-            $table->foreignId('status_id')->constrained();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('address_id')->references('id')->on('addresses');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 
@@ -32,13 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::table('jobs', function (Blueprint $table) {
-            $table->dropForeign('job_user_id_foreign');
-            $table->dropForeign('job_patient_id_foreign');
-            $table->dropForeign('job_address_id_foreign');
-            $table->dropForeign('job_status_id_foreign');
-        });
         Schema::dropIfExists('jobs');
-        Schema::dropIfExists('job');
     }
 };
