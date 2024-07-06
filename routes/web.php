@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get("/users", [UserController::class, 'index'])->name("users.home_users");
+Route::get("/users", [UserController::class, 'index'])->name("users.index");
 Route::get("/users/{id}", [UserController::class, 'edit']);
 Route::post("/users/create", [UserController::class, 'store']);
 Route::put("/users/{id}/update", [UserController::class, 'update']);
