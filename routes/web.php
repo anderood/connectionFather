@@ -10,6 +10,10 @@ Route::get('/token', function () {
    return csrf_token();
 });
 
+Route::get('/', function () {
+    return view('home');
+});
+
 Route::get("/users", [UserController::class, 'index'])->name("home");
 Route::get("/users/{id}", [UserController::class, 'edit']);
 Route::post("/users/create", [UserController::class, 'store']);
