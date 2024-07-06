@@ -26,7 +26,7 @@ Route::post("/patients/create", [PatientController::class, 'store']);
 Route::put("/patients/{id}/update", [PatientController::class, 'update']);
 Route::delete("/patients/{id}/destroy", [PatientController::class, 'destroy']);
 
-Route::get("/status", [StatusController::class, 'index']);
+Route::get("/status", [StatusController::class, 'index'])->name('status.index');
 Route::get("/status/{id}", [StatusController::class, 'edit']);
 Route::post("/status/create", [StatusController::class, 'store']);
 Route::put("/status/{id}/update", [StatusController::class, 'update']);

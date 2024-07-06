@@ -20,7 +20,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-        return $this->statusService->getAllStatus();
+        return view('status.index');
     }
 
     /**
