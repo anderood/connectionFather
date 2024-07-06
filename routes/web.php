@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Job\JobController;
 use App\Http\Controllers\Patients\patientController;
 use App\Http\Controllers\Status\StatusController;
 use App\Http\Controllers\Users\UserController;
@@ -26,3 +27,9 @@ Route::get("/status/{id}", [StatusController::class, 'edit']);
 Route::post("/status/create", [StatusController::class, 'store']);
 Route::put("/status/{id}/update", [StatusController::class, 'update']);
 Route::delete("/status/{id}/destroy", [StatusController::class, 'destroy']);
+
+Route::get("/jobs", [JobController::class, 'index']);
+Route::get("/jobs/{id}", [JobController::class, 'edit']);
+Route::post("/jobs/create", [JobController::class, 'store']);
+Route::put("/jobs/{id}/update", [JobController::class, 'update']);
+Route::delete("/jobs/{id}/destroy", [JobController::class, 'destroy']);
