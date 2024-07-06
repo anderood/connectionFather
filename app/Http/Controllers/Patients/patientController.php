@@ -20,7 +20,7 @@ class patientController extends Controller
      */
     public function index()
     {
-        return $this->patientService->getAllPatients();
+        return view('patients.index');
     }
 
     /**
