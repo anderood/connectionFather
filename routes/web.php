@@ -32,7 +32,7 @@ Route::post("/status/create", [StatusController::class, 'store']);
 Route::put("/status/{id}/update", [StatusController::class, 'update']);
 Route::delete("/status/{id}/destroy", [StatusController::class, 'destroy']);
 
-Route::get("/jobs", [JobController::class, 'index']);
+Route::get("/jobs", [JobController::class, 'index'])->name('jobs.index');
 Route::get("/jobs/{id}", [JobController::class, 'edit']);
 Route::post("/jobs/create", [JobController::class, 'store']);
 Route::put("/jobs/{id}/update", [JobController::class, 'update']);
