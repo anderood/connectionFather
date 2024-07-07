@@ -2,8 +2,12 @@
     <div class="container-sm flex-column">
         <h2>Usuarios Cadastrados</h2>
         <a href="{{ route('users.create_user')}}" class="btn btn-primary">Novo</a>
+       @if (session('success'))
+           <div class="alert alert-success">
+               <p>{{ session('success') }}</p>
+           </div>
+        @endif
     </div>
-    <div class="container-sm">
         <table class="table">
             <thead>
             <tr>
@@ -30,6 +34,3 @@
             </tbody>
         </table>
     </div>
-
-</div>
-

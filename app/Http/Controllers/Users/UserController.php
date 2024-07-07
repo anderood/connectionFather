@@ -55,7 +55,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-//        return $this->userService->getUserById($id);
+        $user = $this->userService->getUserById($id);
+        return view('users.edit_user', ['user' => $user]);
     }
 
     /**

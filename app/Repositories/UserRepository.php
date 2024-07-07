@@ -42,10 +42,10 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = $this->getUserById($id);
 
-        $user->name = $userData['name'];
+        $user->fill($userData);
         $user->save();
 
-        return User::find($id);
+        return redirect()->route('users.index')->with('success', 'Usuario atualizado com Sucesso!');
     }
 
     /**
