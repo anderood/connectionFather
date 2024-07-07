@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Patients;
 
+use App\Models\Address;
 use App\Models\Patient;
 
 class PatientRepository implements PatientRepositoryInterface
@@ -30,7 +31,28 @@ class PatientRepository implements PatientRepositoryInterface
      */
     public function createPatient($data)
     {
-        return Patient::create($data);
+        $address = [
+            'zip_code' => $data['zipcode'],
+            'street' => $data['street'],
+            'number' => $data['number'],
+            'complement' => $data['complement'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'who_is' => 'paciente',
+        ];
+
+        $address = Address::create($address);
+
+        Patient::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'date_of_birth' => $data['date_of_birth'],
+            'gender' => $data['gender'],
+            'phone' => $data['phone'],
+            'email' => $data['email'],
+            'address_id' => $address->id,
+        ]);
+        return redirect()->route('patients.index')->with('success', 'Paciente criado com Sucesso!');
     }
 
     /**
@@ -55,6 +77,7 @@ class PatientRepository implements PatientRepositoryInterface
      */
     public function deletePatient($id): mixed
     {
-        return Patient::destroy($id);
+        Patient::destroy($id);
+        return redirect()->route('patients.index')->with('success', 'Paciente excluido com Sucesso!');
     }
 }

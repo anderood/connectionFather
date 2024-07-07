@@ -6,12 +6,12 @@
         </div>
         <table class="table">
             <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Ação</th>
-            </tr>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Ação</th>
+                </tr>
             </thead>
             <tbody>
             @foreach($patients as $patient)
@@ -20,8 +20,8 @@
                     <td>{{ $patient->phone }}</td>
                     <td>{{ $patient->gender === '0' ? 'Masculino' : 'Feminino' }}</td>
                     <td>
-                        <a href="{{ route('users.edit_user', [$patient->id])}}" class="btn btn-primary">Editar</a>
-                        <form action="{{ route('users.destroy', [$patient->id]) }}" method="POST" class="d-inline">
+                        <a href="{{ route('patients.edit_patient', [$patient->id])}}" class="btn btn-primary">Editar</a>
+                        <form action="{{ route('patients.destroy', [$patient->id]) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</button>

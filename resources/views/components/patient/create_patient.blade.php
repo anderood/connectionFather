@@ -55,6 +55,10 @@
             <label for="state" class="form-label">Estado</label>
             <input type="text" class="form-control" name="state">
         </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" name="observations"></textarea>
+            <label for="floatingTextarea">Comments</label>
+        </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Confirmar</button>
         </div>

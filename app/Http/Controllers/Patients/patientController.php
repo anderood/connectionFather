@@ -54,7 +54,8 @@ class patientController extends Controller
      */
     public function edit(string $id)
     {
-        return $this->patientService->getPatientById($id);
+        $patient = $this->patientService->getPatientById($id);
+        return view('patients.edit_patient', ['patient' => $patient]);
     }
 
     /**

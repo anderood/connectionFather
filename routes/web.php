@@ -23,10 +23,10 @@ Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('
 
 Route::get("/patients", [PatientController::class, 'index'])->name("patients.index");
 Route::get("/patients/create", [PatientController::class, 'create'])->name("patients.create_patient");
-Route::get("/patients/{id}", [PatientController::class, 'edit']);
+Route::get("/patients/{id}/edit", [PatientController::class, 'edit'])->name("patients.edit_patient");
 Route::post("/patients/create", [PatientController::class, 'store'])->name('patients.store');
-Route::put("/patients/{id}/update", [PatientController::class, 'update']);
-Route::delete("/patients/{id}/destroy", [PatientController::class, 'destroy']);
+Route::put("/patients/{id}/update", [PatientController::class, 'update'])->name('patients.update');
+Route::delete("/patients/{id}/destroy", [PatientController::class, 'destroy'])->name('patients.destroy');
 
 Route::get("/status", [StatusController::class, 'index'])->name('status.index');
 Route::get("/status/{id}", [StatusController::class, 'edit']);
