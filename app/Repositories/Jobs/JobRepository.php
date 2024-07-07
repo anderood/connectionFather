@@ -30,7 +30,8 @@ class JobRepository implements JobRepositoryInterface
      */
     public function createJob($data)
     {
-        return Job::create($data);
+        Job::create($data);
+        return redirect()->route('jobs.index')->with('success', 'Agendamento realizado com sucesso!');
     }
 
     /**
@@ -44,7 +45,7 @@ class JobRepository implements JobRepositoryInterface
         $job->fill($data);
         $job->save();
 
-        return $job;
+        return redirect()->route('jobs.index')->with('success', 'Agendamento atualizado com sucesso!');
     }
 
     /**
@@ -53,6 +54,7 @@ class JobRepository implements JobRepositoryInterface
      */
     public function deleteJob($id)
     {
-        return Job::destroy($id);
+        Job::destroy($id);
+        return redirect()->route('jobs.index')->with('success', 'Agendamento excluido com sucesso!');
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Job;
 use App\Http\Controllers\Controller;
 use App\Models\Job;
 use App\Services\Jobs\JobServiceInterface;
+use App\Services\Patients\PatientServiceInterface;
+use App\Services\Status\StatusServiceInterface;
+use App\Services\UserServiceInterface;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -12,9 +15,25 @@ class JobController extends Controller
 
     protected $jobService;
 
-    public function __construct(JobServiceInterface $jobService)
+    protected $patientService;
+
+    protected $userService;
+
+    protected $statusService;
+
+
+
+    public function __construct(
+        JobServiceInterface $jobService,
+        PatientServiceInterface $patientService,
+        UserServiceInterface $userService,
+        StatusServiceInterface $statusService,
+    )
     {
         $this->jobService = $jobService;
+        $this->patientService = $patientService;
+        $this->userService = $userService;
+        $this->statusService = $statusService;
     }
 
     /**
@@ -31,7 +50,10 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        $patients = $this->patientService->getAllPatients();
+        $users = $this->userService->allUsers();
+        $status = $this->statusService->getAllStatus();
+        return view('jobs.create_job', compact('patients', 'users', 'status'));
     }
 
     /**
