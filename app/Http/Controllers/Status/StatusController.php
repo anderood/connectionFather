@@ -20,7 +20,8 @@ class StatusController extends Controller
      */
     public function index()
     {
-        return view('status.index');
+        $itens = $this->statusService->getAllStatus();
+        return view('status.index', ['itens' => $itens]);
     }
 
     /**
@@ -28,7 +29,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('status.create_status');
     }
 
     /**
