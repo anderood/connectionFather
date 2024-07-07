@@ -30,7 +30,8 @@ class StatusRepository implements StatusRepositoryInterface
      */
     public function createStatus($data)
     {
-        return Status::create($data);
+        Status::create($data);
+        return redirect()->route('status.index')->with('success', 'Status Cadastrado com Sucesso!');
     }
 
     /**
@@ -44,7 +45,7 @@ class StatusRepository implements StatusRepositoryInterface
         $status->fill($data);
         $status->save();
 
-        return Status::find($id);
+        return redirect()->route('status.index')->with('success', 'Status atualizado com Sucesso!');
     }
 
     /**
@@ -53,6 +54,7 @@ class StatusRepository implements StatusRepositoryInterface
      */
     public function deleteStatus($id)
     {
-        return Status::destroy($id);
+        Status::destroy($id);
+        return redirect()->route('status.index')->with('success', 'Status excluido com Sucesso!');
     }
 }

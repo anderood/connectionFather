@@ -54,7 +54,8 @@ class StatusController extends Controller
      */
     public function edit(string $id)
     {
-        return $this->statusService->getStatusById($id);
+        $item = $this->statusService->getStatusById($id);
+        return view('status.edit_status', ['item' => $item]);
     }
 
     /**
