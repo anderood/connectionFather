@@ -21,4 +21,14 @@ class Patient extends Model
         'observations',
         'address_id'
     ];
+
+    public function getFullName()
+    {
+        return $this->first_name." ".$this->last_name;
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'id', 'address_id');
+    }
 }

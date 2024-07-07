@@ -67,7 +67,7 @@ class PatientRepository implements PatientRepositoryInterface
         $patient->fill($data);
         $patient->save();
 
-        return Patient::find($id);
+        return redirect()->route('patients.index')->with('success', 'Paciente atualizado com Sucesso!');
 
     }
 

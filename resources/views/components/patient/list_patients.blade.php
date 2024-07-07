@@ -16,7 +16,7 @@
             <tbody>
             @foreach($patients as $patient)
                 <tr>
-                    <td>{{ $patient->first_name }}</td>
+                    <td>{{ $patient->getFullName() }}</td>
                     <td>{{ $patient->phone }}</td>
                     <td>{{ $patient->gender === '0' ? 'Masculino' : 'Feminino' }}</td>
                     <td>

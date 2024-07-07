@@ -19,8 +19,8 @@
             <label for="inputState" class="form-label">Sexo</label>
             <select name="gender" class="form-select">
                 <option selected>Selecione</option>
-                <option value="0">Masculino</option>
-                <option value="1">Feminino</option>
+                <option value="0" {{ $patient->gender == '0' ? 'selected' : '' }}>Masculino</option>
+                <option value="1" {{ $patient->gender == '1' ? 'selected' : '' }}>Feminino</option>
             </select>
         </div>
         <div class="col-md-6">
@@ -34,27 +34,27 @@
         <h2>Endereço</h2>
         <div class="col-md-6">
             <label for="zipcode" class="form-label">CEP</label>
-            <input type="text" class="form-control" name="zipcode" value="{{ $patient->zipcode }}">
+            <input type="text" class="form-control" name="zipcode" value="{{ $patient->address->zip_code }}">
         </div>
         <div class="col-md-6">
             <label for="street" class="form-label">Rua</label>
-            <input type="text" class="form-control" name="street" value="{{ $patient->street }}">
+            <input type="text" class="form-control" name="street" value="{{ $patient->address->street }}">
         </div>
         <div class="col-md-6">
             <label for="number" class="form-label">Numero</label>
-            <input type="text" class="form-control" name="number" value="{{ $patient->number }}">
+            <input type="text" class="form-control" name="number" value="{{ $patient->address->number }}">
         </div>
         <div class="col-md-6">
             <label for="complement" class="form-label">Complemento</label>
-            <input type="text" class="form-control" name="complement" value="{{ $patient->complement }}">
+            <input type="text" class="form-control" name="complement" value="{{ $patient->address->complement }}">
         </div>
         <div class="col-md-6">
             <label for="city" class="form-label">Cidade</label>
-            <input type="text" class="form-control" name="city" value="{{ $patient->city }}">
+            <input type="text" class="form-control" name="city" value="{{ $patient->address->city }}">
         </div>
         <div class="col-md-6">
             <label for="state" class="form-label">Estado</label>
-            <input type="text" class="form-control" name="state" value="{{ $patient->state }}">
+            <input type="text" class="form-control" name="state" value="{{ $patient->address->state }}">
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Confirmar</button>

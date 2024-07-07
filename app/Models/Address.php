@@ -18,4 +18,13 @@ class Address extends Model
         'state',
         'who_is',
     ];
+
+    protected $hidden = [
+        'who_is'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'address_id', 'id');
+    }
 }
