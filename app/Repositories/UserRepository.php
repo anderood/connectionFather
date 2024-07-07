@@ -13,7 +13,8 @@ class UserRepository implements UserRepositoryInterface
      */
     public function createUser(array $user)
     {
-        return User::create($user);
+        User::create($user);
+        return redirect()->route('users.index')->with('success', 'Usuario criado com Sucesso!');
     }
 
     /**
@@ -54,6 +55,7 @@ class UserRepository implements UserRepositoryInterface
      */
     public function destroyUser(int $id)
     {
-        return User::destroy($id);
+        User::destroy($id);
+        return redirect()->route('users.index')->with('success', 'Usuario excluido com Sucesso!');
     }
 }

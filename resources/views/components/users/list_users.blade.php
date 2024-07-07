@@ -2,17 +2,12 @@
     <div class="container-sm flex-column">
         <h2>Usuarios Cadastrados</h2>
         <a href="{{ route('users.create_user')}}" class="btn btn-primary">Novo</a>
-       @if (session('success'))
-           <div class="alert alert-success">
-               <p>{{ session('success') }}</p>
-           </div>
-        @endif
+        @include('components.success.view_success')
     </div>
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome Completo</th>
+                <th scope="col">Nome</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Ação</th>
@@ -21,13 +16,16 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <th scope="row">{{ $user->id }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone }}</td>
                     <td>
                         <a href="{{ route('users.edit_user', [$user->id])}}" class="btn btn-primary">Editar</a>
-                        <a href="{{ route('users.destroy', [$user->id])}}" class="btn btn-danger">Excluir</a>
+                        <form action="{{ route('users.destroy', [$user->id]) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
