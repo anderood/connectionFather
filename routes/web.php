@@ -22,8 +22,9 @@ Route::put("/users/{id}/update", [UserController::class, 'update'])->name('users
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get("/patients", [PatientController::class, 'index'])->name("patients.index");
+Route::get("/patients/create", [PatientController::class, 'create'])->name("patients.create_patient");
 Route::get("/patients/{id}", [PatientController::class, 'edit']);
-Route::post("/patients/create", [PatientController::class, 'store']);
+Route::post("/patients/create", [PatientController::class, 'store'])->name('patients.store');
 Route::put("/patients/{id}/update", [PatientController::class, 'update']);
 Route::delete("/patients/{id}/destroy", [PatientController::class, 'destroy']);
 

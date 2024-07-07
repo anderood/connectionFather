@@ -20,7 +20,8 @@ class patientController extends Controller
      */
     public function index()
     {
-        return view('patients.index');
+        $patients = $this->patientService->getAllPatients();
+        return view('patients.index', ['patients' => $patients]);
     }
 
     /**
@@ -28,7 +29,7 @@ class patientController extends Controller
      */
     public function create()
     {
-        //
+        return view('patients.create_patient');
     }
 
     /**
