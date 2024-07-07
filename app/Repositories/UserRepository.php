@@ -20,7 +20,7 @@ class UserRepository implements UserRepositoryInterface
      * @param int $id
      * @return mixed
      */
-    public function getUserById(int $id)
+    public function getUserById($id)
     {
         return User::find($id);
     }

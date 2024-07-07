@@ -27,7 +27,7 @@ class UserService implements UserServiceInterface
      * @param int $id
      * @return mixed
      */
-    public function getUserById(int $id)
+    public function getUserById($id)
     {
         return $this->userRepository->getUserById($id);
     }
