@@ -21,7 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $allUsers = $this->userService->allUsers();
+        return view('users.index', ['users' => $allUsers]);
     }
 
     /**
@@ -29,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create_user');
     }
 
     /**

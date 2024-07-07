@@ -15,10 +15,11 @@ Route::get('/', function () {
 });
 
 Route::get("/users", [UserController::class, 'index'])->name("users.index");
-Route::get("/users/{id}", [UserController::class, 'edit']);
+Route::get("/users/create", [UserController::class, 'create'])->name("users.create_user");
+Route::get("/users/{id}", [UserController::class, 'edit'])->name("users.edit_user");
 Route::post("/users/create", [UserController::class, 'store'])->name("users.store");
 Route::put("/users/{id}/update", [UserController::class, 'update']);
-Route::delete("/users/{id}/destroy", [UserController::class, 'destroy']);
+Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get("/patients", [PatientController::class, 'index'])->name("patients.index");
 Route::get("/patients/{id}", [PatientController::class, 'edit']);

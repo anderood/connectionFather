@@ -8,15 +8,15 @@
             <input type="text" class="form-control" name="name">
         </div>
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
+            <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" name="email">
         </div>
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Telefone</label>
+            <label for="phone" class="form-label">Telefone</label>
             <input type="tel" class="form-control" name="phone">
         </div>
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Senha</label>
+            <label for="password" class="form-label">Senha</label>
             <input type="password" class="form-control" name="password">
         </div>
 {{--        <div class="col-md-6">--}}
