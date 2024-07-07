@@ -36,7 +36,8 @@ Route::put("/status/{id}/update", [StatusController::class, 'update'])->name('st
 Route::delete("/status/{id}/destroy", [StatusController::class, 'destroy'])->name('status.destroy');
 
 Route::get("/jobs", [JobController::class, 'index'])->name('jobs.index');
-Route::get("/jobs/{id}", [JobController::class, 'edit']);
-Route::post("/jobs/create", [JobController::class, 'store']);
-Route::put("/jobs/{id}/update", [JobController::class, 'update']);
-Route::delete("/jobs/{id}/destroy", [JobController::class, 'destroy']);
+Route::get("/jobs/create", [JobController::class, 'create'])->name("jobs.create_job");
+Route::get("/jobs/{id}", [JobController::class, 'edit'])->name("jobs.edit_job");
+Route::post("/jobs/create", [JobController::class, 'store'])->name("jobs.store_job");
+Route::put("/jobs/{id}/update", [JobController::class, 'update'])->name("jobs.update_job");
+Route::delete("/jobs/{id}/destroy", [JobController::class, 'destroy'])->name("jobs.destroy");
