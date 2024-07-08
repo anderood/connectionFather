@@ -31,4 +31,9 @@ class Patient extends Model
     {
         return $this->hasOne(Address::class, 'id', 'address_id');
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Job::class, 'patient_id', 'id');
+    }
 }

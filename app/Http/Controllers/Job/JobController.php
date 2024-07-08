@@ -21,8 +21,6 @@ class JobController extends Controller
 
     protected $statusService;
 
-
-
     public function __construct(
         JobServiceInterface $jobService,
         PatientServiceInterface $patientService,

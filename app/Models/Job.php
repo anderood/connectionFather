@@ -18,4 +18,20 @@ class Job extends Model
         'date_scheduling',
         'status_job_id',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function patient()
+    {
+        return $this->hasone(Patient::class, 'id', 'patient_id');
+    }
+
+    public function status()
+    {
+        return $this->hasMany(Status::class, 'id', 'status_job_id');
+    }
+
 }
