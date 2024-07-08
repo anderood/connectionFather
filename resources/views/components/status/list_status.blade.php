@@ -6,11 +6,11 @@
     </div>
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">Titulo</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Ação</th>
-        </tr>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Ação</th>
+            </tr>
         </thead>
         <tbody>
         @foreach($itens as $item)

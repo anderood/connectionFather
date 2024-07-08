@@ -8,8 +8,7 @@
             <input type="text" class="form-control" name="title">
         </div>
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" ></textarea>
-            <label for="floatingTextarea">Descrição</label>
+            <textarea name="description" class="form-control" placeholder="Leave a comment here" ></textarea>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Confirmar</button>

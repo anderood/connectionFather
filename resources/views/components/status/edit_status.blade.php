@@ -8,7 +8,9 @@
             <input type="text" class="form-control" name="title" value="{{ $item->title }}">
         </div>
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here"></textarea>
+            <textarea name="description" class="form-control" placeholder="Leave a comment here">
+                {{ $item->description }}
+            </textarea>
             <label for="floatingTextarea">Descrição</label>
         </div>
         <div class="col-12">
