@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Job\JobController;
 use App\Http\Controllers\Patients\patientController;
 use App\Http\Controllers\Status\StatusController;
@@ -10,9 +11,7 @@ Route::get('/token', function () {
    return csrf_token();
 });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get("/", [HomeController::class, 'index'])->name('home');
 
 Route::get("/users", [UserController::class, 'index'])->name("users.index");
 Route::get("/users/create", [UserController::class, 'create'])->name("users.create_user");
