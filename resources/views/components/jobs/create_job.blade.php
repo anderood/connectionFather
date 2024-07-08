@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Novo Agendamento</h2>
     <form class="row g-3" action="{{ route('jobs.store_job') }}" method="post">
-        <input type="hidden" name="status_job_id" value="4">
+        <input type="hidden" name="status_id" value="1">
         @csrf
         <div class="col-md-6">
             <label for="title" class="form-label">Titulo</label>
@@ -33,12 +33,14 @@
             <label for="address_id" class="form-label">Endereço</label>
             <select name="address_id" class="form-select">
                 <option selected>Selecione</option>
-                <option value="1">Fulano</option>
-                <option>Circlano</option>
+                <option value="{{ $patient->address->id }}">
+                    {{ $patient->address->getFullAddress() }}
+                </option>
             </select>
         </div>
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" name="description">
+            </textarea>
             <label for="floatingTextarea">Descrição</label>
         </div>
         <div class="col-12">

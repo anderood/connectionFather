@@ -30,7 +30,17 @@ class JobRepository implements JobRepositoryInterface
      */
     public function createJob($data)
     {
-        Job::create($data);
+        $job = [
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'user_id' => $data['user_id'],
+            'patient_id' => $data['patient_id'],
+            'address_id' => $data['address_id'],
+            'date_scheduling' => $data['date_scheduling'],
+            'status_job_id' => $data['status_id'],
+        ];
+
+        Job::create($job);
         return redirect()->route('jobs.index')->with('success', 'Agendamento realizado com sucesso!');
     }
 

@@ -12,6 +12,7 @@
             <th scope="col">Atendente</th>
             <th scope="col">Data de Agendamento</th>
             <th scope="col">Status</th>
+            <th scope="col">Ação</th>
         </tr>
         </thead>
         <tbody>
