@@ -15,5 +15,9 @@ class Status extends Model
         'description'
     ];
 
+    public function jobs()
+    {
+         return $this->hasMany(Job::class, 'status_id', 'id');
+    }
 
 }

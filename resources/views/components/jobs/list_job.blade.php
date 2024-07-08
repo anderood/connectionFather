@@ -22,7 +22,7 @@
                 <td>{{$job->patient->getFullName()}}</td>
                 <td>{{ $job->user->name }}</td>
                 <td>{{ $job->date_scheduling }}</td>
-                <td>{{ $job->status_id }}</td>
+                <td>{{ $job->status[0]['title'] }}</td>
                 <td>
                     <a href="{{ route('jobs.edit_job', [$job->id]) }}" class="btn btn-primary">Editar</a>
                     <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
