@@ -76,7 +76,10 @@ class JobController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->jobService->getJobById($id);
+        $job = $this->jobService->getJobById($id);
+        $patients = $this->patientService->getAllPatients();
+        $users = $this->userService->allUsers();
+        return view('jobs.edit_job', compact('job', 'patients', 'users'));
     }
 
     /**

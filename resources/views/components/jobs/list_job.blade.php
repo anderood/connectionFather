@@ -7,6 +7,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th scope="col">Titulo</th>
             <th scope="col">Paciente</th>
             <th scope="col">Atendente</th>
             <th scope="col">Data de Agendamento</th>
@@ -16,7 +17,8 @@
         <tbody>
         @foreach($allJobs as $job)
             <tr>
-                <td> {{$job->patient->getFullName()}}</td>
+                <td>{{$job->title}}</td>
+                <td>{{$job->patient->getFullName()}}</td>
                 <td>{{ $job->user->name }}</td>
                 <td>{{ $job->date_scheduling }}</td>
                 <td>{{ $job->status_id }}</td>

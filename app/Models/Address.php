@@ -23,6 +23,11 @@ class Address extends Model
         'who_is'
     ];
 
+    public function getFullAddress()
+    {
+        return $this->street." | ".$this->number. " | ". $this->city." | ".$this->state;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'address_id', 'id');
