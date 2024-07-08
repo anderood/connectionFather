@@ -41,7 +41,9 @@
             </select>
         </div>
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px">
+                {{ $job->description }}
+            </textarea>
             <label for="floatingTextarea">Descrição</label>
         </div>
         <div class="col-12">
