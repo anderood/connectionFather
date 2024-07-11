@@ -19,8 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $allJobs = $this->homeService->getAllJobs();
-        return view('home', compact('allJobs'));
+        $userData = $this->homeService->getAllJobs();
+        return view('home', compact('userData'));
     }
 
     /**
