@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Job\JobController;
-use App\Http\Controllers\Patients\patientController;
+use App\Http\Controllers\Patients\PatientController;
 use App\Http\Controllers\Status\StatusController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Patients\PatientServiceInterface;
 use Illuminate\Http\Request;
 
-class patientController extends Controller
+class PatientController extends Controller
 {
     protected $patientService;
 
