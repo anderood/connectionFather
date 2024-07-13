@@ -1,6 +1,6 @@
 <div class="container">
     <div class="container-sm flex-column">
-        <h2>Agendamentos Cadastrados</h2>
+        <h2>Agendamentos</h2>
         <a href="{{ route('jobs.create_job')}}" class="btn btn-primary">Novo</a>
         @include('components.success.view_success')
     </div>
@@ -9,7 +9,7 @@
         <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Paciente</th>
-            <th scope="col">Atendente</th>
+            <th scope="col">Colaborador</th>
             <th scope="col">Data de Agendamento</th>
             <th scope="col">Status</th>
             <th scope="col">Ação</th>

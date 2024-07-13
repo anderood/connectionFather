@@ -14,7 +14,7 @@ class UserRepository implements UserRepositoryInterface
     public function createUser(array $user)
     {
         User::create($user);
-        return redirect()->route('users.index')->with('success', 'Usuario criado com Sucesso!');
+        return redirect()->route('users.index')->with('success', 'Colaborador criado com Sucesso!');
     }
 
     /**

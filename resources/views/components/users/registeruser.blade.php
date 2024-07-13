@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Cadastro de Usuario</h2>
+    <h2>Novo Colaborador</h2>
     <form class="row g-3" action="{{ route('users.store') }}" method="post">
         @csrf
         @method('post')

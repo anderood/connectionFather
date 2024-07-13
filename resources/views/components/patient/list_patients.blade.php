@@ -1,6 +1,6 @@
 <div class="container">
         <div class="container-sm flex-column">
-            <h2>Pacientes Cadastrados</h2>
+            <h2>Pacientes</h2>
             <a href="{{ route('patients.store')}}" class="btn btn-primary">Novo</a>
             @include('components.success.view_success')
         </div>

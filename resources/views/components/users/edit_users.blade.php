@@ -3,7 +3,7 @@
         <form class="row g-3" action="{{ route('users.update', [$user->id]) }}" method="post">
             @csrf
             @method('put')
-            <h2>Cadastro de Usuario</h2>
+            <h2>Editar de Colaborador</h2>
                 <div class="col-md-6">
                     <label for="name" class="form-label">Nome Completo</label>
                     <input type="text" class="form-control" name="name" value="{{ $user->name }}">

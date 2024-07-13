@@ -1,6 +1,6 @@
 <div class="container">
     <div class="container-sm flex-column">
-        <h2>Usuarios Cadastrados</h2>
+        <h2>Colaboradores</h2>
         <a href="{{ route('users.create_user')}}" class="btn btn-primary">Novo</a>
         @include('components.success.view_success')
     </div>
