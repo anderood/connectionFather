@@ -1,5 +1,8 @@
 <div class="container mt-4">
-    <h1>Conexões Agendadas</h1>
+    @if(session()->has('success'))
+        <span>{{ session()->get('success') }}</span>
+    @endif
+    <h2>Conexões Agendadas</h2>
     <div class="row d-flex justify-content-center">
         @foreach($userData as $user)
             <div class="col-md-3">

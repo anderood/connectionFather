@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Home;
+namespace App\Repositories\Dashboard;
 
 use App\Models\Job;
 
-class HomeRepository implements HomeRepositoryInterface
+class DashboardRepository implements DashboardRepositoryInterface
 {
 
     /**

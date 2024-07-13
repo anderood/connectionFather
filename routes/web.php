@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Job\JobController;
+use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Patients\PatientController;
 use App\Http\Controllers\Status\StatusController;
 use App\Http\Controllers\Users\UserController;
@@ -12,6 +14,15 @@ Route::get('/token', function () {
 });
 
 Route::get("/", [HomeController::class, 'index'])->name('home');
+
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get("/login", [LoginController::class, "index"])->name("login.index");
+    Route::post("/login", [LoginController::class, "store"])->name("login.store");
+    Route::get("/logout", [LoginController::class, "destroy"])->name("login.destroy");
+});
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::get("/users", [UserController::class, 'index'])->name("users.index");
 Route::get("/users/create", [UserController::class, 'create'])->name("users.create_user");

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\Home;
+namespace App\Services\Dashboard;
 
-use App\Repositories\Home\HomeRepositoryInterface;
+use App\Repositories\Dashboard\DashboardRepositoryInterface;
 
-class HomeService implements HomeServiceInterface
+class DashboardService implements DashboardServiceInterface
 {
     protected $homeRepository;
 
-    public function __construct(HomeRepositoryInterface $homeRepository)
+    public function __construct(DashboardRepositoryInterface $homeRepository)
     {
         $this->homeRepository = $homeRepository;
     }
