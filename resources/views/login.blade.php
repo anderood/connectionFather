@@ -15,10 +15,10 @@
     <form action="{{ route('login.store') }}" method="post">
         @csrf
         <label for="email">
-            <input type="email" name="email" id="" value="meuemail@email.com">
+            <input type="email" name="email" value="">
         </label>
         <label for="password">
-            <input type="password" name="password" id="" value="12345678">
+            <input type="password" name="password" value="">
         </label>
         <button type="submit">Logar</button>
     </form>
