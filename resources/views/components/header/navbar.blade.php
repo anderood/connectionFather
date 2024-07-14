@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('jobs.index') }}">Agendamentos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login.destroy') }}">Logout</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -26,5 +29,4 @@
             </div>
         </div>
     </nav>
-    <a href="{{ route('login.destroy') }}">Logout</a>
 
