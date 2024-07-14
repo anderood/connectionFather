@@ -2,7 +2,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center p-4">
         <h2>Agendamentos</h2>
-        <a href="{{ route('jobs.create_job')}}" class="btn btn-primary">Novo</a>
+        <a href="{{ route('jobs.create')}}" class="btn btn-primary">Novo</a>
     </div>
     @include('components.success.view_success')
 
@@ -12,7 +12,7 @@
                 <div class="card h-100 shadow">
                     <div class="card-body position-relative">
                         <div class="position-absolute top-0 end-0 m-2">
-                            <a href="{{ route('jobs.edit_job', [$job->id]) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ route('jobs.edit', [$job->id]) }}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
