@@ -1,14 +1,11 @@
 <div class="container mt-4">
-    @if(session()->has('success'))
-        <span>{{ session()->get('success') }}</span>
-    @endif
-    <h2>Conexões Agendadas</h2>
+    <h1 class="text-center mb-4">Conexões Agendadas</h1>
     <div class="row d-flex justify-content-center">
         @foreach($userData as $user)
-            <div class="col-md-3">
-                <div class="card text-bg-primary mb-3">
-                    <div class="card-header">Total Agendados</div>
-                    <div class="card-body">
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 shadow">
+                    <div class="card-header bg-primary text-white">Total Agendados</div>
+                    <div class="card-body bg-light text-dark">
                         <h5 class="card-title">{{ $user['name'] }}</h5>
                         <h4 class="card-title">{{ $user['total'] }}</h4>
                     </div>
