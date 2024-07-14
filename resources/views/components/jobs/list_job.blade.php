@@ -1,41 +1,37 @@
 @php use Carbon\Carbon; @endphp
 <div class="container">
-    <div class="container-sm flex-column">
+    <div class="d-flex justify-content-between align-items-center p-4">
         <h2>Agendamentos</h2>
         <a href="{{ route('jobs.create_job')}}" class="btn btn-primary">Novo</a>
-        @include('components.success.view_success')
     </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Titulo</th>
-            <th scope="col">Paciente</th>
-            <th scope="col">Colaborador</th>
-            <th scope="col">Agendamento</th>
-            <th scope="col">Status</th>
-            <th scope="col">Ação</th>
-        </tr>
-        </thead>
-        <tbody>
+    @include('components.success.view_success')
+
+    <div class="row">
         @foreach($allJobs as $job)
-            <tr>
-                <td>{{$job->title}}</td>
-                <td>{{$job->patient->getFullName()}}</td>
-                <td>{{ $job->user->name }}</td>
-                <td>{{ Carbon::parse($job->date_scheduling)->format('d/m/Y') }}</td>
-                <td>{{ $job->status[0]['title'] }}</td>
-                <td>
-                    <a href="{{ route('jobs.edit_job', [$job->id]) }}" class="btn btn-primary">Editar</a>
-                    <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir
-                        </button>
-                    </form>
-                </td>
-            </tr>
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 shadow">
+                    <div class="card-body position-relative">
+                        <div class="position-absolute top-0 end-0 m-2">
+                            <a href="{{ route('jobs.edit_job', [$job->id]) }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Tem certeza que deseja excluir este agendamento?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <h5 class="card-title">{{$job->title}}</h5>
+                        <p class="card-text"><strong>Paciente:</strong> {{$job->patient->getFullName()}}</p>
+                        <p class="card-text"><strong>Colaborador:</strong> {{ $job->user->name }}</p>
+                        <p class="card-text"><strong>Agendamento:</strong> {{ Carbon::parse($job->date_scheduling)->format('d/m/Y') }}</p>
+                        <p class="card-text"><strong>Status:</strong> {{ $job->status[0]['title'] }}</p>
+                    </div>
+                </div>
+            </div>
         @endforeach
-        </tbody>
-    </table>
+    </div>
 </div>

@@ -12,7 +12,7 @@ class JobRepository implements JobRepositoryInterface
      */
     public function getAllJobs()
     {
-        return Job::all();
+        return Job::all()->sortDesc();
     }
 
     /**
