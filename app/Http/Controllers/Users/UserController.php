@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UserRequest;
 use App\Services\UserServiceInterface;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -63,7 +63,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
         $userData = $request->all();
         return $this->userService->updateUser($userData, $id);
