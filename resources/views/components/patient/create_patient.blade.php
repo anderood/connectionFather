@@ -1,5 +1,14 @@
 <div class="container">
     <h2 class="">Cadastro de Pacientes</h2>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="row g-3" action="{{ route('patients.store') }}" method="post">
         @csrf
         <div class="col-md-6">
@@ -12,7 +21,7 @@
         </div>
         <div class="col-md-6">
             <label for="date_of_birth" class="form-label">Data de Nascimento</label>
-            <input type="text" class="form-control" name="date_of_birth">
+            <input type="date" class="form-control" name="date_of_birth">
         </div>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Sexo</label>
@@ -60,7 +69,7 @@
             <label for="floatingTextarea">Comments</label>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
     </form>
 </div>
