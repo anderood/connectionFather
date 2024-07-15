@@ -62,7 +62,7 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StatusRequest $request, string $id)
     {
         $status = $request->all();
         return $this->statusService->updateStatus($status, $id);

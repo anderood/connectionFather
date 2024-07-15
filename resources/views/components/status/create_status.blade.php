@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-6 col-md-12">
             <label for="title" class="form-label">Descrição</label>
-            <textarea name="description" class="form-control" placeholder="Coloque uma descrição aqui..."></textarea>
+            <textarea name="description" class="form-control" placeholder="Escreva uma descrição aqui..."></textarea>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
