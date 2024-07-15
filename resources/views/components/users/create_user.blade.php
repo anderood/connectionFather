@@ -1,5 +1,14 @@
 <div class="container">
     <h2>Novo Colaborador</h2>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="row g-3" action="{{ route('users.store') }}" method="post">
         @csrf
         @method('post')
@@ -24,7 +33,7 @@
 {{--            <input type="password" class="form-control" id="inputPassword4">--}}
 {{--        </div>--}}
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Criar</button>
         </div>
     </form>
 </div>
