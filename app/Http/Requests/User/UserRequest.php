@@ -4,6 +4,8 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
@@ -20,12 +22,17 @@ class UserRequest extends FormRequest
      *
      * @return array<string, ValidationRule|array|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
+//        'required|string|email|max:255|unique:users',
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => [
+                Rule::requiredIf(function () use ($request) {
+                    return $request->input('email') === null;
+                }),
+            ],
+            'password' => 'required|string|min:6',
         ];
     }
 }
