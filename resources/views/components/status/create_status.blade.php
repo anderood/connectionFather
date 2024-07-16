@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Criar Novo Status</h2>
+    <h2 class="text-center mb-4">Novo Status</h2>
     @if($errors->any())
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)
