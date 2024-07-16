@@ -66,7 +66,7 @@
             <input type="text" class="form-control" name="state" value="{{ $patient->address->state }}">
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
 </div>

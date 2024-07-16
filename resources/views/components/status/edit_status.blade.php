@@ -21,7 +21,7 @@
             <textarea name="description" class="form-control" placeholder="Escreva uma descrição aqui...">{{ $item->description }}</textarea>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
 </div>
