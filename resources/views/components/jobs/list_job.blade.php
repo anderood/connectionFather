@@ -10,20 +10,22 @@
         @foreach($allJobs as $job)
             <div class="col-12 col-md-6 col-lg-4 mb-3">
                 <div class="card h-100 shadow">
+                    <div class="card-header bg-primary text-white">{{ $job->status[0]['title'] }}</div>
+                    <div class="position-absolute top-0 end-0 m-2">
+                        <a href="{{ route('jobs.edit', [$job->id]) }}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Tem certeza que deseja excluir este agendamento?')">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </div>
                     <div class="card-body position-relative">
-                        <div class="position-absolute top-0 end-0 m-2">
-                            <a href="{{ route('jobs.edit', [$job->id]) }}" class="btn btn-primary btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form action="{{ route('jobs.destroy', [$job->id]) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Tem certeza que deseja excluir este agendamento?')">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </div>
+
                         <h5 class="card-title">{{$job->title}}</h5>
                         <p class="card-text"><strong>Paciente:</strong> {{$job->patient->getFullName()}}</p>
                         <p class="card-text"><strong>Colaborador:</strong> {{ $job->user->name }}</p>

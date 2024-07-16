@@ -8,7 +8,8 @@
         @foreach($users as $user)
             <div class="col-12 col-md-6 col-lg-4 mb-3">
                 <div class="card h-100 shadow">
-                    <div class="card-body position-relative">
+                    <div class="card-header bg-primary text-white">
+                        {{$user->name}}
                         <div class="position-absolute top-0 end-0 m-2">
                             <a href="{{ route('users.edit', [$user->id]) }}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
@@ -22,7 +23,9 @@
                                 </button>
                             </form>
                         </div>
-                        <h5 class="card-title"><strong>Nome:</strong> {{$user->name}}</h5>
+                    </div>
+                    <div class="card-body position-relative">
+
                         <p class="card-text"><strong>Email:</strong> {{ $user->email }}</p>
                         <p class="card-text"><strong>Telefone:</strong> {{ isset($user->phone) ? $user->phone : 'Não informado'}}</p>
                     </div>
