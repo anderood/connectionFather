@@ -9,7 +9,7 @@
             </ul>
         </div>
     @endif
-    <form class="row g-3" action="{{ route('jobs.update_job', [$job->id]) }}" method="post">
+    <form class="row g-3" action="{{ route('jobs.update', [$job->id]) }}" method="post">
         @csrf
         @method('put')
         <input type="hidden" name="status_id" value="4">

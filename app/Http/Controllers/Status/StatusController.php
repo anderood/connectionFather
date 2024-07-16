@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Status;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Status\StatusRequest;
 use App\Services\Status\StatusServiceInterface;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class StatusController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StatusRequest $request)
     {
         $status = $request->all();
         return $this->statusService->createStatus($status);
@@ -61,7 +62,7 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StatusRequest $request, string $id)
     {
         $status = $request->all();
         return $this->statusService->updateStatus($status, $id);

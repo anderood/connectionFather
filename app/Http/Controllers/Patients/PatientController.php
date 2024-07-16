@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Patients;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Patient\PatientRequest;
 use App\Services\Patients\PatientServiceInterface;
-use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
@@ -35,7 +35,7 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PatientRequest $request)
     {
         $patient = $request->all();
         return $this->patientService->createPatient($patient);
@@ -61,7 +61,7 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PatientRequest $request, string $id)
     {
         $patient = $request->all();
         return $this->patientService->updatePatient($patient, $id);

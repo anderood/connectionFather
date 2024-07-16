@@ -10,7 +10,7 @@
                 <div class="card h-100 shadow">
                     <div class="card-body position-relative">
                         <div class="position-absolute top-0 end-0 m-2">
-                            <a href="{{ route('status.edit_status', [$item->id]) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ route('status.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('status.destroy', [$item->id]) }}" method="POST" class="d-inline">

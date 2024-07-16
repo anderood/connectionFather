@@ -1,5 +1,14 @@
 <div class="container">
-    <h2 class="">Edição de Pacientes</h2>
+    <h2 class="">Editar Paciente</h2>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="row g-3" action="{{ route('patients.update', [$patient->id]) }}" method="post">
         @csrf
         @method('put')
