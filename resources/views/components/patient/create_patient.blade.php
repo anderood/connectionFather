@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="text-center mb-4">Cadastro de Pacientes</h2>
+    <h2 class="text-center mb-4">Novo Paciente</h2>
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
