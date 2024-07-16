@@ -6,21 +6,59 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-    @error('error')
-        <span>{{ $message }}</span>
-    @enderror
-    <form action="{{ route('login.store') }}" method="post">
-        @csrf
-        <label for="email">
-            <input type="email" name="email" value="">
-        </label>
-        <label for="password">
-            <input type="password" name="password" value="">
-        </label>
-        <button type="submit">Logar</button>
-    </form>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="form-container col-md-8 col-lg-6">
+            <div class="container">
+                <h2 class="text-center mb-4">ConnectionFather</h2>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="row g-3" action="{{ route('login.store') }}" method="post">
+                    @csrf
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">Logar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
