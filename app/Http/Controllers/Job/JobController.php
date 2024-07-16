@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Job;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Job\JobRequest;
 use App\Models\Job;
 use App\Services\Jobs\JobServiceInterface;
 use App\Services\Patients\PatientServiceInterface;
@@ -57,7 +58,7 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
         $job = $request->all();
         return $this->jobService->createJob($job);
@@ -85,7 +86,7 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(JobRequest $request, int $id)
     {
         $job = $request->all();
         return $this->jobService->updateJob($job, $id);

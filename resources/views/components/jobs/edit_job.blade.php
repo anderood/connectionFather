@@ -1,5 +1,14 @@
 <div class="container">
     <h2>Editar Agendamento</h2>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="row g-3" action="{{ route('jobs.update_job', [$job->id]) }}" method="post">
         @csrf
         @method('put')
@@ -7,7 +16,7 @@
 
         <div class="col-md-6">
             <label for="title" class="form-label">Titulo</label>
-            <input type="text" class="form-control" name="title" value="{{ $job->title }}">
+            <input type="text" class="form-control" name="title" placeholder="Ex: Realizar a Conexão do Paciente" value="{{ $job->title }}">
         </div>
         <div class="col-md-6">
             <label for="date_scheduling" class="form-label">Data de Agendamento</label>
@@ -16,7 +25,7 @@
         <div class="col-md-6">
             <label for="user_id" class="form-label">Usuario</label>
             <select name="user_id" class="form-select">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
                 @foreach($users as $user)
                     <option value="{{ $user->id }}" {{ $user->id == $job->user_id ? 'selected' : '' }} >{{ $user->name }}</option>
                 @endforeach
@@ -25,7 +34,7 @@
         <div class="col-md-6">
             <label for="patient_id" class="form-label">Pacientes</label>
             <select name="patient_id" class="form-select">
-                <option selected>Selecione</option>
+                <option value="">Selecione</option>
                 @foreach($patients as $patient)
                     <option value="{{ $patient->id }}" {{ $patient->id == $job->patient_id ? 'selected' : '' }}>{{ $patient->getFullName() }}</option>
                 @endforeach
@@ -34,17 +43,15 @@
         <div class="col-md-12">
             <label for="address_id" class="form-label">Endereço</label>
             <select name="address_id" class="form-select">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
                 <option value="{{ $job->patient->address->id }}" selected>
                     {{ $job->patient->address->getFullAddress() }}
                 </option>
             </select>
         </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px">
-                {{ $job->description }}
-            </textarea>
-            <label for="floatingTextarea">Descrição</label>
+        <div class="col-md-12">
+            <label class="form-label">Descrição</label>
+            <textarea class="form-control" placeholder="Coloque uma descrição aqui..." style="height: 100px">{{ $job->description }}</textarea>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Agendar</button>
