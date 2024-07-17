@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 <div class="container">
     <div class="d-flex justify-content-between align-items-center p-4">
         <h2>Pacientes</h2>
@@ -24,7 +25,7 @@
                     </div>
                     <div class="card-body position-relative">
 
-                        <p class="card-text"><strong>Data de Nascimento:</strong> {{ $patient->date_of_birth }}</p>
+                        <p class="card-text"><strong>Data de Nascimento:</strong> {{ Carbon::parse($patient->date_of_birth)->format("d/m/Y")}}</p>
                         <p class="card-text"><strong>Telefone:</strong> {{ $patient->phone }}</p>
                         <p class="card-text"><strong>Sexo:</strong> {{ $patient->gender === '0' ? 'Masculino' : 'Feminino' }}</p>
                         <p class="card-text"><strong>Email:</strong> {{ $patient->email }}</p>
