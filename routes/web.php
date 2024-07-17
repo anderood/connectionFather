@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Job\JobController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Patients\PatientController;
@@ -13,7 +12,9 @@ Route::get('/token', function () {
    return csrf_token();
 });
 
-Route::get("/", [HomeController::class, 'index'])->name('home');
+Route::get("/", function () {
+    return redirect()->route("login.index");
+});
 
 
 Route::controller(LoginController::class)->group(function () {

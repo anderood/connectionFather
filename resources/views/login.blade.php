@@ -18,17 +18,13 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
+
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="form-container col-md-8 col-lg-6">
             <div class="container">
                 <h2 class="text-center mb-4">ConnectionFather</h2>
@@ -51,12 +47,11 @@
                         <label for="password" class="form-label">Senha</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
-                    <div class="col-12 text-center">
+                    <div class="d-grid gap-2 col-6 mx-auto">
                         <button type="submit" class="btn btn-primary">Logar</button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
