@@ -27,7 +27,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="form-container col-md-8 col-lg-6">
             <div class="container">
-                <h2 class="text-center mb-4">ConnectionFather</h2>
+                <h2 class="fw-bold text-center mb-4">ConnectionFather</h2>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
