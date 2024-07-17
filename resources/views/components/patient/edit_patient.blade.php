@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-6">
             <label for="date_of_birth" class="form-label">Data de Nascimento</label>
-            <input type="text" class="form-control" name="date_of_birth" value="{{ $patient->date_of_birth }}">
+            <input type="date" class="form-control" name="date_of_birth" value="{{ $patient->date_of_birth }}">
         </div>
         <div class="col-md-6">
             <label for="inputState" class="form-label">Sexo</label>
