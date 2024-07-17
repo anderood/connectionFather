@@ -24,13 +24,13 @@ class UserRequest extends FormRequest
      */
     public function rules(Request $request): array
     {
-//        'required|string|email|max:255|unique:users',
         return [
             'name' => 'required|string|max:255',
             'email' => [
                 Rule::requiredIf(function () use ($request) {
                     return $request->input('email') === null;
                 }),
+                Rule::unique('users', 'email')->ignore($request->input('email'))
             ],
             'password' => 'required|string|min:6',
         ];
