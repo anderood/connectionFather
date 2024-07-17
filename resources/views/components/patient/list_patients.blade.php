@@ -24,8 +24,12 @@
                     </div>
                     <div class="card-body position-relative">
 
+                        <p class="card-text"><strong>Data de Nascimento:</strong> {{ $patient->date_of_birth }}</p>
                         <p class="card-text"><strong>Telefone:</strong> {{ $patient->phone }}</p>
-                        <p class="card-text"><strong>Genero:</strong> {{ $patient->gender === '0' ? 'Masculino' : 'Feminino' }}</p>
+                        <p class="card-text"><strong>Sexo:</strong> {{ $patient->gender === '0' ? 'Masculino' : 'Feminino' }}</p>
+                        <p class="card-text"><strong>Email:</strong> {{ $patient->email }}</p>
+                        <p class="card-text"><strong>Cidade:</strong> {{ $patient->address->city }}</p>
+                        <p class="card-text"><strong>Estado:</strong> {{ $patient->address->state }}</p>
                     </div>
                 </div>
             </div>
