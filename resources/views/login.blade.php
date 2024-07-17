@@ -19,7 +19,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
     </style>
 </head>
 <body>
@@ -47,13 +46,24 @@
                         <label for="password" class="form-label">Senha</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <div class="d-grid gap-2 col-12 mx-auto">
                         <button type="submit" class="btn btn-primary">Logar</button>
                     </div>
                 </form>
+                <div class="text-center mt-4">
+                    <div id="g_id_onload"
+                         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-callback="handleCredentialResponse"
+                         data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin" data-type="standard"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 </html>
