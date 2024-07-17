@@ -43,10 +43,20 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = $this->getUserById($id);
 
-        $user->fill($userData);
+        if (isset($userData['user_data'])) {
+            $user->name = $userData['name'];
+            $user->email = $userData['email'];
+            $user->phone = $userData['phone'];
+            $user->save();
+
+            return redirect()->route('users.index')->with('success', 'Colaborador atualizado com Sucesso!');
+        }
+
+        $user->password = $userData['password'];
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'Usuario atualizado com Sucesso!');
+        return redirect()->route('users.index')->with('success', 'Senha atualizado com Sucesso!');
+
     }
 
     /**
