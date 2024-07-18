@@ -13,15 +13,25 @@ class DashboardRepository implements DashboardRepositoryInterface
     public function getAllJobs()
     {
        $jobs = Job::with('user')->get();
-
-       $users = $jobs->pluck('user')->unique('id');
-
-        return $users->map(function ($user) use ($jobs) {
-           return [
-               'user_id' => $user->id,
-               'name' => $user->name,
-               'total' => $jobs->where('user_id', $user->id)->count()
+       $data = [];
+       foreach ($jobs as $job) {
+           $data[] = [
+               'id' => $job->id,
+               'title' => $job->user->name,
+               'start' => $job->date_scheduling,
            ];
-        });
+       }
+
+       return $data;
+
+//       $users = $jobs->pluck('user')->unique('id');
+//
+//        return $users->map(function ($user) use ($jobs) {
+//           return [
+//               'user_id' => $user->id,
+//               'name' => $user->name,
+//               'total' => $jobs->where('user_id', $user->id)->count()
+//           ];
+//        });
     }
 }

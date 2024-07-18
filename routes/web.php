@@ -26,6 +26,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::middleware("auth")->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard/events', [DashboardController::class, 'events']);
 
     Route::get("/users", [UserController::class, 'index'])->name("users.index");
     Route::get("/users/create", [UserController::class, 'create'])->name("users.create");
