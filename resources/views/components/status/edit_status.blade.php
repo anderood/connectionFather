@@ -2,15 +2,7 @@
     <div class="d-flex justify-content-center align-items-center m-4">
         <h2 class="text-center mt-4">Editar Status</h2>
     </div>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <ul>
-                    <li>{{ $error }}</li>
-                </ul>
-            @endforeach
-        </div>
-    @endif
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('status.update', [$item->id]) }}" method="post">
         @csrf
         @method('put')

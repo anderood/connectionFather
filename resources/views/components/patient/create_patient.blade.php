@@ -1,14 +1,6 @@
 <div class="container">
     <h2 class="text-center mb-4">Novo Paciente</h2>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('patients.store') }}" method="post">
         @csrf
         <div class="col-md-6">

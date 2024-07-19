@@ -27,15 +27,7 @@
         <div class="form-container col-md-8 col-lg-6">
             <div class="container">
                 <h2 class="fw-bold text-center mb-4">ConnectionFather</h2>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                @include('components.error.view_error')
                 <form class="row g-3" action="{{ route('login.store') }}" method="post">
                     @csrf
                     <div class="col-md-12">

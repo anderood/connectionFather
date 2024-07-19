@@ -1,14 +1,6 @@
 <div class="container">
     <h2 class="text-center mb-4">Novo Status</h2>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <ul>
-                    <li>{{ $error }}</li>
-                </ul>
-            @endforeach
-        </div>
-    @endif
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('status.store') }}" method="post">
         @csrf
         @method('post')
