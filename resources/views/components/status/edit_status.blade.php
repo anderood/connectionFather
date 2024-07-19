@@ -1,14 +1,8 @@
 <div class="container">
-    <h2>Editar Status</h2>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <ul>
-                    <li>{{ $error }}</li>
-                </ul>
-            @endforeach
-        </div>
-    @endif
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <h2 class="text-center mt-4">Editar Status</h2>
+    </div>
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('status.update', [$item->id]) }}" method="post">
         @csrf
         @method('put')
@@ -20,8 +14,10 @@
             <label for="title" class="form-label">Descrição</label>
             <textarea name="description" class="form-control" placeholder="Escreva uma descrição aqui...">{{ $item->description }}</textarea>
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
+        <br>
+        <br>
     </form>
 </div>

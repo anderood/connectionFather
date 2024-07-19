@@ -1,14 +1,8 @@
 <div class="container">
-    <h2 class="">Editar Paciente</h2>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <h2 class="text-center mt-4">Editar Paciente</h2>
+    </div>
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('patients.update', [$patient->id]) }}" method="post">
         @csrf
         @method('put')
@@ -65,8 +59,10 @@
             <label for="state" class="form-label">Estado</label>
             <input type="text" class="form-control" name="state" value="{{ $patient->address->state }}">
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
+    <br>
+    <br>
 </div>

@@ -1,14 +1,8 @@
 <div class="container">
-    <h2 class="text-center mb-4">Novo Paciente</h2>
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <h2 class="text-center mb-4">Novo Paciente</h2>
+    </div>
+    @include('components.error.view_error')
     <form class="row g-3" action="{{ route('patients.store') }}" method="post">
         @csrf
         <div class="col-md-6">
@@ -68,8 +62,10 @@
             <textarea class="form-control" placeholder="Leave a comment here" name="observations"></textarea>
             <label for="floatingTextarea">Comments</label>
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
     </form>
+    <br>
+    <br>
 </div>

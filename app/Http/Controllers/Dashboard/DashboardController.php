@@ -16,8 +16,12 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $userData = $this->dashboardService->getAllJobs();
+        return view('dashboard');
+    }
 
-        return view('dashboard', ['userData' => $userData]);
+    public function events()
+    {
+        $jobs = $this->dashboardService->getAllJobs();
+        return response()->json($jobs);
     }
 }
