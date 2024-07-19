@@ -24,8 +24,8 @@
     </style>
 </head>
 <body>
+@include('components.header.navbar')
 <div class="container">
-    @include('components.header.navbar')
     <div class="d-flex justify-content-center">
         <div class="form-container col-md-8 col-lg-6">
             @include('components.users.edit_users')
