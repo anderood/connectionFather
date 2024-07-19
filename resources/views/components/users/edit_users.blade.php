@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 class="text-center mb-4">Editar Colaborador</h2>
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <h2 class="text-center mt-4">Editar Colaborador</h2>
     </div>
     @if ($errors->any())
         <div class="alert alert-danger">

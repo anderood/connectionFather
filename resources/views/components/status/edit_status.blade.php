@@ -1,5 +1,7 @@
 <div class="container">
-    <h2>Editar Status</h2>
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <h2 class="text-center mt-4">Editar Status</h2>
+    </div>
     @if($errors->any())
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)
