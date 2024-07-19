@@ -59,8 +59,10 @@
             <label for="state" class="form-label">Estado</label>
             <input type="text" class="form-control" name="state" value="{{ $patient->address->state }}">
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
+    <br>
+    <br>
 </div>

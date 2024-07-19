@@ -19,7 +19,7 @@
             <label for="phone" class="form-label">Telefone</label>
             <input type="tel" class="form-control" name="phone" value="{{ $user->phone }}">
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
@@ -41,8 +41,10 @@
             <label for="password" class="form-label">Confirmar Senha</label>
             <input type="password" class="form-control" name="password" value="{{ $user->password }}" >
         </div>
-        <div class="col-12">
+        <div class="d-grid gap-2 col-12 mx-auto">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
     </form>
+    <br>
+    <br>
 </div>
