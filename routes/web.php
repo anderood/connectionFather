@@ -12,6 +12,8 @@ Route::get('/token', function () {
    return csrf_token();
 });
 
+Route::view('/offline', 'offline');
+
 Route::get("/", function () {
     return redirect()->route("login.index");
 });
