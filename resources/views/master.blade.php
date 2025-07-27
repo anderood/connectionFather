@@ -1,185 +1,272 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connection Father</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #calendar {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .fc-list-event-title {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        .fc-list-day-cushion {
+            background: #f1f3f5;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<section>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <h1>CFather</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Home
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Pacientes</a></li>
-                            <li><a class="dropdown-item" href="#">Colaboradores</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Gestão</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-</section>
 
-<section>
-    <main class="container py-5">
-        <h2 class="pb-2 border-bottom">Proximos Agendamentos</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+<div class="">
+    <!-- NAVBAR -->
+    <header class="container mt-3">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11"><a
+                        class="navbar-brand col-lg-3 me-0" href="#">Centered nav</a>
+                    <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">
+                                <span><i class="bi bi-house-door"></i></span>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span><i class="bi bi-person-badge-fill"></i></span>
+                                <span>Pacientes</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/pacientes">Todos Pacientes</a></li>
+                                <li><a class="dropdown-item" href="#">Endereços dos Pacientes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span><i class="bi bi-people-fill"></i></span>
+                                <span>Colaboradores</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/colaboradores">Todos Colaboradores</a></li>
+                                <li><a class="dropdown-item" href="#">Endereços dos Colaboradores</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                        <button class="btn btn-primary">Agendamento</button>
+                    </div>
                 </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
             </div>
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+        </nav>
+    </header>
 
-        <div class="bg-body-tertiary p-5 rounded">
-            <h1>Agendamento e gestão, tudo em um unico lugar...</h1>
-            <p class="lead">Um lugar onde você pode fazer a gestão dos pacientes que fazem dialises.</p>
-            <a class="btn btn-md btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">Novo Agendamento</a>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <main class="container mt-4">
+
+        <section class="bg-white p-4">
+            <h1 class="fw-bold">Seja bem-vindo, Fulano 👋</h1>
+            <p class="text-muted">Aqui está o resumo do seu painel de controle.</p>
+        </section>
+
+        <section class="bg-white p-4">
+            <h2 class="h4 px-1">📅 Próximos eventos</h2>
+            <ul id="eventList" class="list-group"></ul>
+        </section>
+
+        <section class="bg-white p-4">
+            <h2 class="h4 px-1">📆 Calendário</h2>
+            <div id="calendar"></div>
+        </section>
+
+        <section class="bg-white p-4">
+            <h2 class="h4 px-1">📊 Resumo</h2>
+            <div class="row gap-3 d-flex justify-content-center mt-4">
+                <article class="card text-center p-3" style="width: 11rem;">
+                    <i class="bi bi-check2-circle fs-1 text-success"></i>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">1000</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Completos</h6>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
-                            </div>
-                        </form>
+                </article>
+
+                <article class="card text-center p-3" style="width: 11rem;">
+                    <i class="bi bi-calendar-event fs-1 text-primary"></i>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">1000</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Agendados</h6>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
+                </article>
+
+                <article class="card text-center p-3" style="width: 11rem;">
+                    <i class="bi bi-person fs-1 text-warning"></i>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">1</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Paciente</h6>
                     </div>
-                </div>
+                </article>
+
+                <article class="card text-center p-3" style="width: 11rem;">
+                    <i class="bi bi-people fs-1 text-info"></i>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">4</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Colaboradores</h6>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <section class="bg-white p-4">
+            <h2 class="h4 px-1">📈 Gráfico</h2>
+            <canvas id="myChart"></canvas>
+        </section>
+
     </main>
-</section>
-
-<section class="container py-5">
-    <div class="row g-2">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">Agendamentos Realizados</h6>
-                    <p class="card-text"><strong><span>345</span></strong></p>
+    <!-- MODAL -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Detalhes do Paciente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">N° de Atendimentos Realizados</h6>
-                    <p class="card-text"><strong><span>247</span></strong></p>
+                <div class="modal-body">
+                    <p><strong>Nome:</strong> <span id="modalPatientName"></span></p>
+                    <p><strong>Data:</strong> <span id="modalDate"></span></p>
+                    <p><strong>Observação:</strong> <span id="modalNote"></span></p>
                 </div>
-            </div>
-        </div>
-        <div class="col ">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">N° de Atendimentos Agendados</h6>
-                    <p class="card-text"><strong><span>247</span></strong></p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title">N° de Atendimentos Finalizados</h6>
-                    <p class="card-text"><strong><span>247</span></strong></p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="container">
-    <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pacientes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Colaboradores</a></li>
-        </ul>
-        <p class="text-center text-body-secondary">© 2025 CFather</p>
-    </footer>
-</section>
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        // ✅ Criação do calendário
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pt-br',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,listWeek'
+            },
+            events: [
+                { title: 'Consulta João Silva', start: '2025-07-10', extendedProps: { paciente: 'João Silva', observacao: 'Revisão anual' } },
+                { title: 'Consulta João Silva', start: '2025-07-26', extendedProps: { paciente: 'João Silva', observacao: 'Revisão anual' } },
+                { title: 'Consulta João Silva', start: '2025-07-27', extendedProps: { paciente: 'João Silva', observacao: 'Revisão anual' } },
+                { title: 'Consulta Maria Souza', start: '2025-07-26', extendedProps: { paciente: 'Maria Souza', observacao: 'Retorno pós-operatório' } },
+                { title: 'Consulta Jose Souza', start: '2025-07-28', extendedProps: { paciente: 'Jose Souza', observacao: 'Retorno pós-operatório' } },
+                { title: 'Consulta Jose Souza', start: '2025-07-29', extendedProps: { paciente: 'Jose Souza', observacao: 'Retorno pós-operatório' } },
+                { title: 'Consulta Jose Souza', start: '2025-07-30', extendedProps: { paciente: 'Jose Souza', observacao: 'Retorno pós-operatório' } }
+            ],
+            eventClick: function(info) {
+                // 👉 Modal ao clicar no calendário
+                document.getElementById('modalPatientName').textContent = info.event.extendedProps.paciente;
+                document.getElementById('modalDate').textContent = info.event.start.toLocaleDateString();
+                document.getElementById('modalNote').textContent = info.event.extendedProps.observacao;
+
+                var myModal = new bootstrap.Modal(document.getElementById('eventModal'));
+                myModal.show();
+            },
+            windowResize: function() {
+                if (window.innerWidth < 768) {
+                    calendar.changeView('listWeek');
+                } else {
+                    calendar.changeView('dayGridMonth');
+                }
+            }
+        });
+
+        // Renderiza o calendário
+        calendar.render();
+        if (window.innerWidth < 768) {
+            calendar.changeView('listWeek');
+        }
+
+        // ✅ Lista de próximos eventos
+        const allEvents = calendar.getEvents();
+        const futureEvents = allEvents
+            .filter(event => event.start >= new Date()) // só eventos futuros
+            .sort((a, b) => a.start - b.start)          // ordena
+            .slice(0, 5);                               // só os 5 primeiros
+
+        const eventList = document.getElementById('eventList');
+        futureEvents.forEach(ev => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.style.cursor = 'pointer';
+            li.innerHTML = `
+                <span><i class="bi bi-calendar-event"></i> ${ev.title}</span>
+                <span class="badge bg-primary rounded-pill">
+                    ${ev.start.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
+                </span>
+            `;
+
+            // 👉 Clique no item da lista também abre o modal
+            li.addEventListener('click', () => {
+                document.getElementById('modalPatientName').textContent = ev.extendedProps?.paciente || 'Não informado';
+                document.getElementById('modalDate').textContent = ev.start.toLocaleDateString();
+                document.getElementById('modalNote').textContent = ev.extendedProps?.observacao || 'Sem observação';
+
+                var myModal = new bootstrap.Modal(document.getElementById('eventModal'));
+                myModal.show();
+            });
+
+            eventList.appendChild(li);
+        });
+    });
+
+    // ✅ Gráfico Chart.js (sem alterações)
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# de Votos',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+</script>
+
 </body>
 </html>
